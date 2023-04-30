@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1618499019 source:c:\users\joaqu\onedrive\escritorio\progra ii\g3e2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"contacto.h"
+
+1618499070 c:\users\joaqu\onedrive\escritorio\progra ii\g3e2\contacto.h
+
+1618499019 source:c:\users\joaqu\onedrive\escritorio\progra ii\g3e2\contacto.c
+	<stdio.h>
+	"contacto.h"
+	<string.h>
+
+1618499019 source:c:\users\joaqu\onedrive\escritorio\progra ii\guia 3\g3e2\contacto.c
+	<stdio.h>
+	"contacto.h"
+	<string.h>
+
+1618595663 c:\users\joaqu\onedrive\escritorio\progra ii\guia 3\g3e2\contacto.h
+

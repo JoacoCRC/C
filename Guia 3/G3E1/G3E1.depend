@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1618170255 source:c:\users\joaqu\onedrive\escritorio\progra ii\g3e1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Fracciones.h"
+
+1618171509 c:\users\joaqu\onedrive\escritorio\progra ii\g3e1\fracciones.h
+
+1618171509 source:c:\users\joaqu\onedrive\escritorio\progra ii\g3e1\fracciones.c
+	<stdio.h>
+	"Fracciones.h"
+
