@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1618155224 source:c:\users\joaqu\onedrive\escritorio\progra ii\guia 1\g1e26\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
