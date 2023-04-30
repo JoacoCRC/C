@@ -1,0 +1,12 @@
+auto
+camion
+helicoptero
+auto
+auto
+grua
+tractor
+grua
+helicoptero
+patrullero
+ambulancia
+tractor
