@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1621004089 source:c:\users\joaqu\onedrive\escritorio\progra ii\1erparcial14-5-21\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1621004089 source:c:\users\joaqu\onedrive\escritorio\progra ii\1erparcial14-5-21\pilas.c
+	"Pilas.h"
+
+1621004089 c:\users\joaqu\onedrive\escritorio\progra ii\1erparcial14-5-21\pilas.h
+
+1621012172 source:c:\users\joaqu\onedrive\escritorio\progra ii\1erparcial14-5-21\colas.c
+	"colas.h"
+
+1621005429 c:\users\joaqu\onedrive\escritorio\progra ii\1erparcial14-5-21\colas.h
+

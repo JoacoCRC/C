@@ -1,0 +1,92 @@
+1) Dado un arbol binario ue proviene de la transformacion de un arbol general,
+obtener mediante una funcion int la suma de las claves ue en el arbol general
+su clave coincidia con su altura y grado
+
+suma(a,1);
+
+int suma(TArbol a,int NA){
+    TArbol aux;
+    int gr; 
+    if(a==NULL)
+       return 0;
+    else{
+       gr=0;
+       aux=a->iz;
+       while(aux!=NULL){
+          gr++;
+          aux=aux->der;
+       }
+       if(a->dato==NA && a->dato==gr){
+          return a->dato+suma(a->iz,NA+1)+(a->der,NA);
+       }
+       else{
+          return suma(a->iz,NA+1)+(a->der,NA);
+       }
+    }
+}
+
+2)Utilizar TDA N-ario, dado un arbol N-ario de enteros ue contiene exactamente
+dos ceros desarrolar una funcion ue obtenga el mayor nivel en el ue haya un cero
+
+ceros=0; nivel=-1;
+nivelde0(a,p,1,&ceros,&nivel);
+
+void nivelde0(TArbol a,posicion p,int na,int *ceros,int *nivel){
+   posicion c,d;
+   if(!nulo(p)){
+      if(p->dato==0){
+         (*ceros)++;
+         if (na>*nivel)
+            *nivel=na;
+      }
+      if(*ceros!=2){
+         c=hijomasiz(p,a);
+         nivelde0(a,c,na+1,ceros,nivel);
+         d=hermano(c,a);
+         while(!nulo(d)&& *ceros!=2){
+            nivelde0(a,d,na,ceros,nivel);
+            d=hermanos(d,a);
+         }
+     }
+   }
+}
+
+3)Dado un grafo CONEXO, mostrar sus vertices en profundidad mediante un 
+recorrido iterativo, finalmente informar si todos los vertices del grafo 
+pudieron visitarse sin necesidad de volver atras, o sea si los vertices 
+visitados en profundidad podrian conformar un camino.
+
+void profundidad(int Ma[][MAX],int V,int vi){
+   int vv[V],cont=1,i,j,flag=0;
+   TPila p;
+
+   for(i=0;i<V;i++)
+      vv[i]=0;
+   i=vi-1;
+   vv[i]=1;
+
+   iniciaP(&p);
+   poneP(&p,i);
+   printf("%d\t",i+1);
+   while(cont!=V){
+      i=consultaP(p);
+      j=0;
+      while(j<V && (Ma[i][j]==0 || (Ma[i][j]==1 && vv[j]==1)){
+         j++;
+      }
+      if(j<V){
+         poneP(&p,j);
+         vv[j]=1;
+         cont++;
+         printf("%d\t",j+1);
+      }
+      else{
+         saca(&p,&i);
+         flag=1;
+      }
+   }
+   if(flag)
+      printf("\nPartiendo de %d se necesita volver atras\n");
+   else
+      printf("\nPartiendo de %d no se necesita volver atras\n");
+}
