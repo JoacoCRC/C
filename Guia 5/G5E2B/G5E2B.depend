@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1619127854 source:c:\users\joaqu\onedrive\escritorio\progra ii\g5e2b\main.c
+	<stdio.h>
+	<stdlib.h>
+	"PilasDinamicasChar.h"
+
+1619127423 source:c:\users\joaqu\onedrive\escritorio\progra ii\g5e2b\pilasdinamicaschar.c
+	"PilasDinamicasChar.h"
+	<stdlib.h>
+
+1619126362 c:\users\joaqu\onedrive\escritorio\progra ii\g5e2b\pilasdinamicaschar.h
+

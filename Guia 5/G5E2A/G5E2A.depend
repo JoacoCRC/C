@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1619118128 source:c:\users\joaqu\onedrive\escritorio\progra ii\g5e2a\main.c
+	<stdio.h>
+	<stdlib.h>
+	"PilasEstaticasChar.h"
+
+1619117048 c:\users\joaqu\onedrive\escritorio\progra ii\g5e2a\pilasestaticaschar.h
+
+1619117814 source:c:\users\joaqu\onedrive\escritorio\progra ii\g5e2a\pilasestaticaschar.c
+	"PilasEstaticasChar.h"
+
