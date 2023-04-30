@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1619636509 source:c:\users\joaqu\onedrive\escritorio\progra ii\lecturaadelantada\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
