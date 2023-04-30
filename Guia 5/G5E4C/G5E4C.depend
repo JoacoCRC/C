@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1619561000 source:c:\users\joaqu\onedrive\escritorio\progra ii\g5e4c\colas.c
+	"colas.h"
+
+1619561000 c:\users\joaqu\onedrive\escritorio\progra ii\g5e4c\colas.h
+
+1619562622 source:c:\users\joaqu\onedrive\escritorio\progra ii\g5e4c\main.c
+	<stdio.h>
+	<stdlib.h>
+	"colas.h"
+
