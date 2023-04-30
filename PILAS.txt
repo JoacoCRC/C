@@ -1,0 +1,103 @@
+*****************************************************************PILAS CABECERAS ESTATICAS***********************************************************
+#define MAX 50
+typedef char TElementoP;
+
+typedef struct{
+   TElementoP datos[MAX];
+   int tope;} TPila;
+
+void iniciaP (TPila * P);
+
+void poneP (TPila * P, TElementoP x);
+
+void sacaP (TPila * P, TElementoP * x);
+
+TElementoP consultaP(TPila P);
+
+int VaciaP (TPila P);
+
+********************************************************IMPLEMENTACION PILAS ESTATICAS******************************************************
+#include "Pilas.h"
+
+
+void iniciaP (TPila * P){
+    (*P).tope=-1;
+}
+
+void poneP (TPila * P, TElementoP x){
+    if ((*P).tope!=MAX-1){
+        (*P).tope++;
+        (*P).datos[(*P).tope]=x;
+    }
+}
+
+void sacaP (TPila * P, TElementoP * x){
+    if((*P).tope!=-1){
+        *x=(*P).datos[(*P).tope];
+        (*P).tope--;
+    }
+}
+
+TElementoP consultaP(TPila P){
+   if(P.tope!=-1)
+    return P.datos[P.tope];
+}
+
+int VaciaP (TPila P){
+   return (P.tope==-1) ;
+}
+
+***********************************************************PILAS CABECERAS DINAMICAS*************************************************************
+#define MAX 50
+typedef char TElementoP;
+
+typedef struct nodop {
+   TElementoP dato;
+   struct nodop *sig;} nodop;
+
+typedef nodop *TPila;
+
+void iniciaP (TPila * P);
+
+void poneP (TPila * P, TElementoP x);
+
+void sacaP (TPila * P, TElementoP * x);
+
+TElementoP consultaP(TPila P);
+
+int VaciaP (TPila P);
+
+********************************************************IMPLEMENTACION PILAS DINAMICAS******************************************************
+#include "Pilas.h"
+#include <stdlib.h>
+
+void iniciaP (TPila * P){
+    *P= NULL;
+}
+
+void poneP (TPila * P, TElementoP x){
+    TPila N;
+    N = (TPila)malloc(sizeof(nodop));
+    N->dato=x;
+    N->sig=*P;
+    *P=N;
+}
+
+void sacaP (TPila * P, TElementoP * x){
+    TPila N;
+    if (*P!=NULL){
+        N=*P;
+        *x= (*P)->dato;
+        *P=(*P)->sig;
+        free(N);
+    }
+}
+
+TElementoP consultaP(TPila P){
+    if (P != NULL)
+        return P->dato;
+}
+
+int VaciaP (TPila P){
+    return (P==NULL);
+}

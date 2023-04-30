@@ -1,0 +1,53 @@
+*******************************AAM KRUSKAL**************************
+
+void AAMkruscal(int Ma[][MAX],int AAM[][MAX],int *costo,int  V);
+void minimo(int Ma[][MAX],int vcc[],int *n,int *m,int V);
+int conexo(int vcc[],int V);
+
+en main invocar con matriz de ady(costo  por arista),AAM(inicializado en 0),&costo,y cantidad de vertices
+
+void AAMkruscal(int Ma[][MAX],int AAM[][MAX],int *costo,int  V){
+    int vcc[V],i=0,j=0,k,aux;
+    for (k=0;k<V;k++)
+        vcc[k]=k+1;
+
+    while(!conexo(vcc,V)){
+        minimo(Ma,vcc,&i,&j,V);
+        AAM[i][j]=Ma[i][j];
+        *costo+=AAM[i][j];
+        Ma[i][j]=999;
+        aux=vcc[i];
+        for (k=0;k<V;k++){
+            if(vcc[k]==aux)
+                vcc[k]=vcc[j];
+        }
+    }
+}
+
+int conexo(int vcc[],int V){ //devuelve 1 si todos los vertices tienen misma componente conexa
+    int i=0,comp;
+
+    comp=vcc[i];
+    i++;
+    while(i<V && vcc[i]==comp)
+        i++;
+    return (i<V)?0:1;
+
+}
+
+void minimo(int Ma[][MAX],int vcc[MAX],int*n, int* m,int V){
+    int min=999,i,j;
+    for(i=0;i<V;i++){
+        for(j=i+1;j<V;j++){
+            if(Ma[i][j]<min){
+                min=Ma[i][j];
+                (*n)=i;
+                (*m)=j;
+            }
+        }
+    }
+    if (vcc[*n]==vcc[*m]){
+        Ma[*n][*m]=999;
+        minimo(Ma,vcc,n,m,V);
+    }
+}

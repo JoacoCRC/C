@@ -1,0 +1,47 @@
+*********************************AAM PRIM*********************************
+
+void AAMprim(int Ma[][MAX],int AAM[][MAX],int *costo,int V,int vi);
+int todosvisitados(int vec[],int V);
+void minimovis(int Ma[][MAX],int vec[],int *n,int *m, int V);
+
+en main invocar con matriz de ady(costo  por arista),AAM(inicializado en 0),&costo, cantidad de vertices y vertice inicial
+
+void AAMprim(int Ma[][MAX],int AAM[][MAX],int *costo,int V,int vi){
+    int vec[V],i=0,j=0,k;
+    for (k=0;k<V;k++)
+        vec[k]=0;
+    vec[vi-1]=1;
+    while (!todosvisitados(vec,V)){
+        minimovis(Ma,vec,&i,&j,V);
+        AAM[i][j]=Ma[i][j];
+        *costo+=AAM[i][j];
+        Ma[i][j]=999;
+        Ma[j][i]=999;
+        vec[i]=1;
+        vec[j]=1;
+    }
+}
+
+int todosvisitados(int vec[],int V){
+    int i=0;
+    while (i<V && vec[i]==1)
+        i++;
+    return (i<V)?0:1;
+}
+
+void minimovis(int Ma[][MAX],int vec[],int *n,int *m,int V){
+    int min=999,i,j;
+    for(i=0;i<V;i++)
+        for(j=i+1;j<V;j++)
+            if( (vec[j]==1 || vec[i]==1) && Ma[i][j]<min ){
+                min=Ma[i][j];
+                (*n)=i;
+                (*m)=j;
+            }
+
+    if (vec[*n]==vec[*m]){
+        Ma[*n][*m]=999;
+        //Ma[*m][*n]=999;
+        minimovis(Ma,vec,n,m,V);
+    }
+}

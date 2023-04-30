@@ -1,0 +1,56 @@
+**********************DECLARACION ARBOL BINARIO***************************
+
+typedef int TElementoA;
+typedef struct nodo{
+    TElementoA dato;
+    struct nodo *iz,*der;} nodo;
+typedef nodo* TArbol;
+
+***********************AGREGAR NODO EN AB***************************
+void addnodo(TArbol* a, TElementoA e);
+
+void addnodo(TArbol* a, TElementoA e){
+    *a = (TArbol)malloc(sizeof(nodo));
+    (*a)->dato = e;
+    (*a)->iz = NULL;
+    (*a)->der = NULL;
+}
+
+***********************AGREGAR NODO EN ABB***************************
+
+void Inserta (TArbol *A, TElementoA X);
+
+void Inserta (TArbol *A, TElementoA X) {
+    if (*A == NULL) {
+        *A = (TArbol) malloc (sizeof (struct nodo));
+        (*A)->dato = X;
+        (*A)->der = NULL;
+        (*A)->iz = NULL;
+    }
+    else
+        if (X>(*A)->dato)
+            Inserta(&((*A)->der), X);
+        else
+            Inserta(&((*A)->iz), X);
+}
+
+********************************TDA ARBOLES N-ARIOS******************
+
+Sean A variable de tipo árbol general y p es variable de tipo posición
+
+*Vacio(A) Devuelve verdadero si A es árbol Vacío.
+
+*Nulo(p) Devuelve verdadero si p es la posición Nula
+
+*HijoMasIzq(p,A) Devuelve la posición del hijo más a la izquierda de p, si p es hoja devuelve una
+posición nula.
+
+*HermanoDer(p,A) Devuelve la posición del hermano a la derecha de p (tiene el mismo padre de p), si p
+es el de la extrema derecha devuelve una posición nula.
+
+*Info(p,A) Devuelve el dato del en la posición p en el árbol A.
+
+*Raiz(A) Devuelve una posición que es la raíz del árbol A.
+
+*Padre(p,A) Devuelve la posición del padre de la posición p en el árbol A, si p es la raíz devuelve una
+posición nula.

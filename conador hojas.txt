@@ -1,0 +1,11 @@
+int hojas(TArbol A,posicion p){
+   posicion c;
+   if(!nulo(p)){
+      c=HijoMasIz(p,A);
+      if(!nulo(c))
+         return 1+hojas(A,HermanoDer(p,A));
+      else
+         return hojas(A,c)+hojas(Hermano(p,A));
+   else
+      return 0;
+}

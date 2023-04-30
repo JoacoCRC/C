@@ -1,0 +1,40 @@
+********************DISTANCIA MINIMA ENTRE TODO PAR DE VERTICES************
+************************************FLOYD********************************
+
+void floyd(int Md[][MAX],int V,int Pf[][MAX]);
+
+Llamo con Md donde cada Md ij vale el valor respectivo, inf si no ay y 0 si i=j
+con Pf[i][j]=0 si existe arista(i,j) 0 i=j, 999 en otro caso
+
+void floyd(int Md [][MAX],int V,int Pf[][MAX]){
+    int i,j,k;
+
+    for(k=0;k<V;k++)
+        for(i=0;i<V;i++)
+            for(j=0;j<V;j++)
+                if(Md[i][k] + Md[k][j] < Md[i][j]){
+                    Md[i][j] = Md[i][k] + Md[k][j];
+                    if (Pf[i][j]==999||Pf[i][j]==0)
+                        Pf[i][j]=k;
+                }
+}
+
+
+*************DISTANCIA MINIMA ENTRE UN VERTICE ORIGEN Y EL RESTO********
+************************************DIJKSTRA********************************
+
+void dijkstra2(int Ma[][MAX],int VecDis[],int V,int vi,int Pd[]);
+
+Llamo VecDis con los valores de la matriz en la fila vi. Y Pd inicial
+con Pd[i]=0 si existe arista (vi,i), 999 en otro caso
+
+void dijkstra2(int Ma[][MAX],int VecDis[],int V,int vi,int Pd[]){
+    int i,j;
+
+    for(i=0;i<V;i++)
+        for(j=0;j<V;j++)
+            if(VecDis[j]+Ma[j][i]<VecDis[i]){
+                VecDis[i]=VecDis[j]+Ma[j][i];
+                Pd[i]=j;
+            }
+}
